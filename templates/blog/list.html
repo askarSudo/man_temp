@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+{% block titel %}Последнии статьи{% endblock %}
+
+
+{% block content %}
+
+<div class="main_page_grid">
+
+    <div class="box box1">
+        <a class='link' href="/14">
+        <div class="box1_grid">
+            <img class="img_1" src="/media/img/1920x1080_px_Code_programming-542596.jpgd.jpeg" >
+            {% if last_stat %}
+        
+                {% for a in last_stat %}
+                    {% if a.id == 14 %}
+                        <a class="text_home" >{{a.stat_text}}</a>
+                    {% endif %} 
+                {% endfor %}
+            {% endif %}
+        </div>
+        </a>
+    </div>
+
+    <div class="box box2 light">
+
+        <a class='link' href="/15">
+        <div class="box2_grid">
+            <img class="img_2" src="/media/img/django.jpg" >
+            {% if last_stat %}
+        
+                {% for a in last_stat %}
+                    {% if a.id == 15 %}
+                        <a class="text_home2" >{{a.stat_text}}</a>
+                    {% endif %} 
+                {% endfor %}
+            {% endif %}
+        </div>
+        </a>
+    </div>
+
+    <div class="box box3">box 3</div>
+    <div class="box box4 light">box 4</div>
+    <div class="box box5">box 5</div>
+
+</div>
+
+<!-- <div class='center_block'>
+
+<a class='stat_link' href="/analys">Медиа в Django</a>
+
+<img class='img_on_list' src="/media/img/123.jpg">
+
+<div class='text_area'>Как просто добавить медиа файлы в Django</div> 
+
+</div> -->
+{% endblock %}
+

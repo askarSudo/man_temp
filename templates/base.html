@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>{% block titel %}Главная{% endblock %}</title>
+    {% block headsnake %}{% endblock %}
+</head>
+
+<div style="height: 2vw;"></div>
+
+<body>
+    <div class="menu">
+
+      <a class="menu_btn" href="/">
+        главная
+      </a>
+
+      <a class="menu_btn" href="/all-stat">
+        все статьи
+      </a> 
+
+      <a class="menu_btn" href="/media">
+        медиа
+      </a>
+
+      <a class="menu_btn" href="/snake">
+        апки
+      </a>   
+
+    </div>
+
+</body>
+
+<div style="height: 2vw;"></div>
+
+<div clas='main'>
+    {% block snakeboode %}{% endblock %}
+    {% block content %}{% endblock %}
+</div>
+
+</html>

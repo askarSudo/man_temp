@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block titel %}{{stat.stat_nam}}{% endblock %}
+
+{% block content %}
+<div class="center_in_stat">
+        <a class='text_name'>{{stat.stat_nam}}</a>
+        <a class="eag">Привет;)</a>
+        <img class='img_on_stat'src="{{stat.img_stat.url}}">
+
+        <pre class='text_'>{{stat.stat_text}}</pre>
+       
+
+        <div class="comment_box2">
+        {% if last_coment %}
+        
+            {% for c in last_coment  %}
+                <div class='text_' >
+            	    <strong >{{c.coment_auther}}</strong>
+            	    <p>{{c.coment_text}}</p>
+                </div>
+            {% endfor %}
+
+
+        {% endif %}
+        </div>
+
+    <form  action="{% url 'blog:leave_coment' stat.id %}" method="POST">
+
+        {% csrf_token %}
+        <div class="comment_box">
+            <input style="margin-left: 3vw;margin-top: 2vw;" type="text" required placeholder="ваше имя" name="name"><br>
+            <textarea style="width: 60vw;height: 15vw;margin-left: 3vw;margin-top: 2vw;" class='enter_txt' name="text" required="" placeholder="Текст комента" ></textarea><br>
+            <button class='comment_btn' type="submit">Оставить коммент </button>
+            <div style="height: 2vw;"></div>
+        </div>
+    </form>
+
+</div>
+
+
+
+{% endblock %}
